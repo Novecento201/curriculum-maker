@@ -1,0 +1,276 @@
+/* ------ FONTS */
+@font-face {
+  font-family: 'Product Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Product Sans Regular'),
+    url('./assets/fonts/Product-Sans-Regular.ttf') format('truetype');
+}
+
+/* ------  SETUP CSS RULES */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------  HTML Elements properties */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Product Sans Regular', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  background-color: #e8eff5;
+  font-size: 16px;
+  color: #555e68;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar (opzionale, per coerenza estetica) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c1c9d2;
+  border-radius: 8px;
+}
+
+/* Curriculum Styles */
+.cv-container {
+  max-width: 950px;
+  margin: 2.5rem auto;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 3rem 3.5rem 2rem 3.5rem;
+  color: #555e68;
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dee3e8;
+  margin-bottom: 2rem;
+}
+.cv-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #0d2c4b;
+  line-height: 1.2;
+}
+.cv-header h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #0d2c4b;
+  margin-top: 0.4rem;
+  opacity: 0.9;
+}
+
+.cv-profile-pic-placeholder {
+  width: 130px;
+  height: 130px;
+  background-color: #d0d8e0;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cv-main {
+  display: flex;
+  gap: 3rem;
+  margin-top: 0;
+}
+.cv-left {
+  flex: 1;
+  padding-right: 2rem;
+  border-right: 1px solid #dee3e8;
+}
+.cv-right {
+  flex: 1.8;
+  padding-left: 2rem;
+}
+.cv-left section,
+.cv-right section {
+  margin-bottom: 2.2rem;
+}
+.cv-left h3,
+.cv-right h3 {
+  font-size: 1.2rem;
+  color: #0d2c4b;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.cv-left p,
+.cv-left ul,
+.cv-left li,
+.cv-right p,
+.cv-right ul,
+.cv-right li {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.cv-contact {
+  list-style: none;
+  padding-left: 0;
+}
+.cv-contact li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.cv-contact li .icon {
+  margin-right: 0.7rem;
+  color: #0d2c4b;
+}
+
+.cv-contact a {
+  color: #1a6dd4;
+  text-decoration: none;
+}
+.cv-contact a:hover {
+  text-decoration: underline;
+}
+.cv-left ul {
+  list-style: none;
+  padding-left: 0;
+}
+.cv-left ul li {
+  margin-bottom: 0.4rem;
+}
+
+.cv-right ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.cv-period {
+  color: #828c96;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+  display: block;
+}
+.cv-edu,
+.cv-exp {
+  margin-bottom: 1.5rem;
+}
+.cv-edu strong,
+.cv-exp strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.cv-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dee3e8;
+  text-align: center;
+  color: #828c96;
+  font-size: 0.85rem;
+}
+.cv-download-btn {
+  background: #1a6dd4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background 0.25s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cv-download-btn:hover {
+  background: #1254a1;
+}
+
+@media print {
+  body {
+    background-color: #fff;
+    font-size: 10pt;
+  }
+  .cv-container {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+  }
+  .cv-download-btn {
+    display: none;
+  }
+  .cv-left {
+    border-right: 1px solid #ccc;
+    padding-right: 15px;
+  }
+  .cv-right {
+    padding-left: 15px;
+  }
+  .cv-profile-pic-placeholder {
+    border: 2px solid #eee;
+  }
+}
+
+@media (max-width: 900px) {
+  .cv-container {
+    padding: 2rem 1.5rem;
+  }
+  .cv-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .cv-profile-pic-placeholder {
+    width: 100px;
+    height: 100px;
+    margin-top: 1rem;
+    align-self: center;
+  }
+  .cv-main {
+    flex-direction: column;
+    gap: 0;
+  }
+  .cv-left,
+  .cv-right {
+    padding: 0;
+    border: none;
+  }
+  .cv-left {
+    margin-bottom: 1.5rem;
+  }
+  .cv-right {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-header h1 {
+    font-size: 2.2rem;
+  }
+  .cv-header h2 {
+    font-size: 1.2rem;
+  }
+  .cv-left h3,
+  .cv-right h3 {
+    font-size: 1.1rem;
+  }
+  .cv-container {
+    padding: 1.5rem 1rem;
+  }
+}
