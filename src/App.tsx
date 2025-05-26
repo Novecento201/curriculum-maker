@@ -64,24 +64,27 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
     className="cv-container"
   >
     <div className="cv-header">
-      <div>
+      <div style={{ flex: 1 }}>
         <h1>{curriculumData.name}</h1>
         <h2>{curriculumData.title}</h2>
       </div>
-      <div className="cv-profile-pic-placeholder">
-        <img
-          src="../public/personal_photo.png"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '50%',
-            boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-            position: 'relative',
-          }}
-        />
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <div className="cv-profile-pic-placeholder">
+          <img
+            src="../public/personal_photo.png"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '50%',
+              boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+              position: 'relative',
+            }}
+          />
+        </div>
       </div>
     </div>
+
     <div className="cv-main">
       <div className="cv-left">
         <section>
@@ -92,7 +95,10 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
           <h3>CONTATTO</h3>
           <ul className="cv-contact">
             {curriculumData.contact.map((c, i) => (
-              <li key={i}>
+              <li
+                key={i}
+                style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}
+              >
                 {c.icon} {c.link ? <a href={c.link}>{c.text}</a> : c.text}
               </li>
             ))}
@@ -140,6 +146,14 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
             </div>
           ))}
         </section>
+
+        <div
+          style={{
+            borderBottom: '2px solid #1a365d',
+            margin: '2rem 0',
+          }}
+        />
+
         <section>
           <h3>ESPERIENZE LAVORATIVE</h3>
           {curriculumData.experience.map((exp, i) => (
@@ -156,6 +170,7 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
         </section>
       </div>
     </div>
+
     <div className="cv-footer">
       <small>
         Autorizzo il trattamento dei miei dati personali ai sensi del Decreto

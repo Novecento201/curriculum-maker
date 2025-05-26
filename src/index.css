@@ -90,17 +90,18 @@ body {
 
 .cv-main {
   display: flex;
-  gap: 3rem;
+  /* gap: 3rem; */
   margin-top: 0;
 }
 .cv-left {
-  flex: 0.9;
+  flex: 1;
   padding-right: 2rem;
-  border-right: 2px solid #1a365d;
+  border-right: 1px solid #1a365d;
 }
 .cv-right {
   flex: 1.1;
   padding-left: 2rem;
+  border-left: 1px solid #1a365d;
 }
 .cv-left section,
 .cv-right section {
@@ -187,7 +188,7 @@ body {
 }
 
 .cv-footer {
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 2px solid #1a365d;
   text-align: center;
