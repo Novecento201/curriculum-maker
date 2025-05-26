@@ -209,18 +209,43 @@ function App() {
         imgHeight
       );
 
+      // Calcola la posizione relativa del container rispetto alla finestra
+      const containerRect = componentRef.current.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft =
+        window.pageXOffset || document.documentElement.scrollLeft;
+
+      // Offset del container rispetto alla pagina
+      const containerTop = containerRect.top + scrollTop;
+      const containerLeft = containerRect.left + scrollLeft;
+
+      // Scala per convertire da pixel del canvas a mm del PDF
+      const pdfScale = imgWidth / canvas.width;
+
       // Aggiungi i link come annotazioni
       const links = componentRef.current.getElementsByTagName('a');
       for (let i = 0; i < links.length; i++) {
         const link = links[i];
-        const rect = link.getBoundingClientRect();
-        const scale = imgWidth / canvas.width;
+        const linkRect = link.getBoundingClientRect();
 
-        const x = rect.left * scale;
-        const y = rect.top * scale;
-        const width = rect.width * scale;
-        const height = rect.height * scale;
+        // Calcola la posizione del link relativa al container
+        const linkTop = linkRect.top + scrollTop;
+        const linkLeft = linkRect.left + scrollLeft;
 
+        // Posizione relativa al container
+        const relativeX = (linkLeft - containerLeft) * 2; // * 2 per il scale di html2canvas
+        const relativeY = (linkTop - containerTop) * 2; // * 2 per il scale di html2canvas
+        const linkWidth = linkRect.width * 2;
+        const linkHeight = linkRect.height * 2;
+
+        // Converti in coordinate PDF (mm)
+        const x = relativeX * pdfScale;
+        const y = relativeY * pdfScale;
+        const width = linkWidth * pdfScale;
+        const height = linkHeight * pdfScale;
+
+        // Aggiungi il link al PDF
         pdf.link(x, y, width, height, { url: link.href });
       }
 
