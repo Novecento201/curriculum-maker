@@ -19,8 +19,9 @@ const curriculumData = {
       text: 'Portfolio',
       link: 'https://marcolovato-portfolio.netlify.app/',
     },
+    { icon: '💻', text: 'GitHub', link: 'https://github.com/Novecento201' },
   ],
-  skills: ['JavaScript', 'React', 'Next.js', 'Git'],
+  skills: ['HTML e CSS', 'JavaScript e TypeScript', 'React', 'Next.js', 'Git'],
   languages: [
     { name: 'Italiano', level: 'madrelingua' },
     { name: 'Inglese', level: 'B2' },
@@ -112,7 +113,7 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
             ))}
           </ul>
         </section>
-        <section>
+        <section style={{ marginBottom: 0 }}>
           <h3>LINGUA</h3>
           <ul>
             {curriculumData.languages.map((lang, i) => (
