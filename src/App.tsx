@@ -59,7 +59,20 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
         <h1>{curriculumData.name}</h1>
         <h2>{curriculumData.title}</h2>
       </div>
-      <div className="cv-profile-pic-placeholder">{/* Foto Profilo */}</div>
+      <div className="cv-profile-pic-placeholder">
+        <img
+          src="../public/personal_photo.png"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '50%',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+            position: 'relative',
+            top: '-5px',
+          }}
+        />
+      </div>
     </div>
     <div className="cv-main">
       <div className="cv-left">
@@ -154,7 +167,7 @@ function App() {
       });
 
       const imgWidth = 210; // A4 width in mm
-      const pageHeight = 297; // A4 height in mm
+      // const pageHeight = 297; // A4 height in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       const pdf = new jsPDF('p', 'mm', 'a4');
 
