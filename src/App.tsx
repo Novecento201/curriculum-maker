@@ -8,9 +8,17 @@ const curriculumData = {
   title: 'FRONT-END DEVELOPER',
   profile: `Sono uno sviluppatore Front-End con una forte passione per il design funzionale e l'esperienza utente. Ho contribuito a progetti web innovativi, spesso integrando soluzioni di intelligenza artificiale, e sono costantemente alla ricerca di approcci semplici a problemi complessi. Lavoro efficacemente in team dinamici, puntando su codice pulito, componenti riutilizzabili e attenzione ai dettagli per favorire la crescita del prodotto.`,
   contact: [
-    { icon: '📞', text: '329 202 7244' },
-    { icon: '📧', text: 'marcolovatowork@gmail.com' },
-    { icon: '🌐', text: 'Portfolio', link: '#' },
+    { icon: '📞', text: '329 202 7244', link: 'tel:3292027244' },
+    {
+      icon: '📧',
+      text: 'marcolovatowork@gmail.com',
+      link: 'mailto:marcolovatowork@gmail.com',
+    },
+    {
+      icon: '🌐',
+      text: 'Portfolio',
+      link: 'https://marcolovato-portfolio.netlify.app/',
+    },
   ],
   skills: ['JavaScript', 'React', 'Next.js', 'Git'],
   languages: [
@@ -25,6 +33,7 @@ const curriculumData = {
       period: '15/11/2021 - 15/11/2022',
       description:
         'Approfondimento pratico su progetti reali utilizzando JavaScript, React e metodologie di sviluppo front-end.',
+      link: 'https://drive.google.com/file/d/1vbsg-QjUdkIDRsIjo8zfuYfczjTVFDy7/view',
     },
   ],
   experience: [
@@ -69,7 +78,6 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
             borderRadius: '50%',
             boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
             position: 'relative',
-            top: '-5px',
           }}
         />
       </div>
@@ -119,7 +127,13 @@ const Curriculum = React.forwardRef<HTMLDivElement>((_, ref) => (
             >
               <strong>{edu.school}</strong>
               <br />
-              {edu.degree}
+              <a
+                href={edu.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {edu.degree}
+              </a>
               <br />
               <span className="cv-period">{edu.period}</span>
               <p>{edu.description}</p>
@@ -164,10 +178,10 @@ function App() {
         scale: 2,
         useCORS: true,
         logging: false,
+        backgroundColor: '#ffffff',
       });
 
       const imgWidth = 210; // A4 width in mm
-      // const pageHeight = 297; // A4 height in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       const pdf = new jsPDF('p', 'mm', 'a4');
 
@@ -179,6 +193,21 @@ function App() {
         imgWidth,
         imgHeight
       );
+
+      // Aggiungi i link come annotazioni
+      const links = componentRef.current.getElementsByTagName('a');
+      for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const rect = link.getBoundingClientRect();
+        const scale = imgWidth / canvas.width;
+
+        const x = rect.left * scale;
+        const y = rect.top * scale;
+        const width = rect.width * scale;
+        const height = rect.height * scale;
+
+        pdf.link(x, y, width, height, { url: link.href });
+      }
 
       pdf.save('Marco_Lovato_CV.pdf');
     } catch (error) {

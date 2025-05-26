@@ -50,7 +50,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   padding: 3rem 3.5rem 2rem 3.5rem;
-  color: #555e68;
+  color: #1a365d;
 }
 
 .cv-header {
@@ -58,31 +58,34 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #dee3e8;
+  border-bottom: 2px solid #1a365d;
   margin-bottom: 2rem;
+  gap: 2rem;
 }
 .cv-header h1 {
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #0d2c4b;
+  color: #1a365d;
   line-height: 1.2;
 }
 .cv-header h2 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  color: #0d2c4b;
+  color: #1a365d;
   margin-top: 0.4rem;
   opacity: 0.9;
 }
 
 .cv-profile-pic-placeholder {
-  width: 230px;
-  height: 230px;
+  width: 250px;
+  height: 250px;
   background-color: #d0d8e0;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 4px solid #1a365d;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .cv-main {
@@ -91,12 +94,12 @@ body {
   margin-top: 0;
 }
 .cv-left {
-  flex: 1;
+  flex: 0.9;
   padding-right: 2rem;
-  border-right: 1px solid #dee3e8;
+  border-right: 2px solid #1a365d;
 }
 .cv-right {
-  flex: 1.8;
+  flex: 1.1;
   padding-left: 2rem;
 }
 .cv-left section,
@@ -106,7 +109,7 @@ body {
 .cv-left h3,
 .cv-right h3 {
   font-size: 1.2rem;
-  color: #0d2c4b;
+  color: #1a365d;
   margin-bottom: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -134,11 +137,11 @@ body {
 }
 .cv-contact li .icon {
   margin-right: 0.7rem;
-  color: #0d2c4b;
+  color: #1a365d;
 }
 
 .cv-contact a {
-  color: #1a6dd4;
+  color: #1a365d;
   text-decoration: none;
 }
 .cv-contact a:hover {
@@ -158,7 +161,7 @@ body {
 }
 
 .cv-period {
-  color: #828c96;
+  color: #4a5568;
   font-size: 0.9rem;
   margin-top: 0.1rem;
   display: block;
@@ -169,20 +172,30 @@ body {
 }
 .cv-edu strong,
 .cv-exp strong {
-  color: #2c3e50;
+  color: #1a365d;
   font-weight: 600;
+}
+
+.cv-edu a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cv-edu a:hover {
+  text-decoration: underline;
 }
 
 .cv-footer {
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #dee3e8;
+  border-top: 2px solid #1a365d;
   text-align: center;
-  color: #828c96;
+  color: #4a5568;
   font-size: 0.85rem;
 }
 .cv-download-btn {
-  background: #1a6dd4;
+  background: #1a365d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -197,7 +210,7 @@ body {
   margin-right: auto;
 }
 .cv-download-btn:hover {
-  background: #1254a1;
+  background: #2c5282;
 }
 
 @media print {
